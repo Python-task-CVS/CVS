@@ -38,7 +38,7 @@ class Repository:
         except Exception:
             return ["Log not found. Please, check repository. Call the command 'check out'"]
 
-    def new_log(self, log):
+    def add_log(self, log):
         log_stack = Service_func.get_object(self.log, "log stack")
         log_stack.append(log)
         Service_func.save_object("log stack", log_stack, self.log)

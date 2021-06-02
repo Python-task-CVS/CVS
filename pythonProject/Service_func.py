@@ -7,6 +7,7 @@ def init_dict_object(file_path):
         pickle.dump({}, service_file)
 
 
+
 def get_dict_objects(file_path):
     """ Получение словаря объектов из служебного файла """
 
