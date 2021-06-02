@@ -18,7 +18,9 @@ commands = {"init": init,
             "add": add,
             "commit": commit,
             "reset": reset,
-            "log": log}
+            "log": log,
+            "check out": check}
+
 
 command = input()
 if command in commands:

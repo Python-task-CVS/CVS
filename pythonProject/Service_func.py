@@ -1,6 +1,12 @@
 import pickle
 
 
+def init_dict_object(file_path):
+    """ Инициализация словаря в служебном файле"""
+    with open(file_path, 'wb') as service_file:
+        pickle.dump({}, service_file)
+
+
 def get_dict_objects(file_path):
     """ Получение словаря объектов из служебного файла """
 
