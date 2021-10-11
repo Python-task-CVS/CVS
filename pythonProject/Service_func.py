@@ -25,9 +25,11 @@ def get_dict_objects(file_path):
 
 def get_object(file_path, name_object):
     """ Получение нужного объекта из служебного файла по имени """
-
-    dict_objects = get_dict_objects(file_path)
-    return dict_objects[name_object]
+    try:
+        dict_objects = get_dict_objects(file_path)
+        return dict_objects[name_object]
+    except KeyError:
+        return None
 
 
 def save_object(name_object, obj, file_path):
@@ -35,5 +37,14 @@ def save_object(name_object, obj, file_path):
 
     dict_objects = get_dict_objects(file_path)
     dict_objects[name_object] = obj
+    with open(file_path, 'wb') as service_file:
+        pickle.dump(dict_objects, service_file)
+
+
+def update_dict(obj, file_path):
+    """ Обновление словаря """
+    dict_objects = get_dict_objects(file_path)
+    for file_name in obj.keys():
+        dict_objects[file_name] = obj[file_name]
     with open(file_path, 'wb') as service_file:
         pickle.dump(dict_objects, service_file)
