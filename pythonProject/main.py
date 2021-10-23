@@ -17,8 +17,7 @@ commands = {"init": init,
             "add": add,
             "commit": commit,
             "reset": reset,
-            "log": log,
-            "check": check}
+            "log": log}
 
 
 def parse_args():
@@ -32,11 +31,9 @@ def parse_args():
 
 
 def main():
-    args = parse_args()
-
-    commands[args.command[0]](args.path)
-    if args.command[0] == "init":
-        init(args.path)
+    #args = parse_args()
+    if args[0] == "init":
+        init(args[1])
     elif args.command[0] == "add":
         add(args.path)
     elif args.command[0] == "commit":
@@ -52,4 +49,5 @@ def main():
 
 
 if __name__ == '__main__':
+    args = input().split(".")
     main()

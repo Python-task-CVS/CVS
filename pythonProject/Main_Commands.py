@@ -85,13 +85,13 @@ def status():
     repo = Service_func.get_object("Repository", _HEAD)
     dict = Service_func.get_dict_objects(_working_dir)
     commit_dict = Service_func.get_dict_objects(_index)
-    if dict:
+    if dict: #если несохранённые изенения есть
         print("You have unsaved changes:\n")
         for file_name in dict.keys():
             print(file_name)
         print('\n\nYou can add this files to repository and save it')
 
-    elif not commit_dict:
+    elif commit_dict: #вот что сохранено и непусто
         print("This changes prepare to commit")
         for file_name in commit_dict.keys():
             print(file_name)
@@ -104,5 +104,3 @@ def log():
     repo.get_log()
 
 
-def check():
-    print("check")

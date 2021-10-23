@@ -47,7 +47,7 @@ class Repository:
                 out_str.append("Command: {0} {1}\nDate{2}\n".format(act.command, act.cmd_object.name, act.date))
             return out_str
         except Exception:
-            return ["Log not found. Please, check repository. Call the command 'check'"]
+            return ["Log not found. Please, check repository."]
 
     def add_log(self, log):
         log_stack = Service_func.get_object(self.log, "log stack")
@@ -68,10 +68,10 @@ class Repository:
 
     def choose_branch(self, branch_name):
         branch = Service_func.get_object(self.branches.branches, branch_name)
-        if branch is not None:
-            self.head = branch
-        else:
+        if branch is None:
             print("Branch doesn't exist. Do you want to create it?")
+        else:
+            self.head = branch
 
     def save_file(self, path):
         try:
