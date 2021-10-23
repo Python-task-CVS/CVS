@@ -31,10 +31,10 @@ def parse_args():
     return parser.parse_args(sys.argv)
 
 
-
-
 def main():
     args = parse_args()
+
+    commands[args.command[0]](args.path)
     if args.command[0] == "init":
         init(args.path)
     elif args.command[0] == "add":
